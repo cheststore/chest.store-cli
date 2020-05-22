@@ -1,0 +1,45 @@
+{
+  "name": "@cheststore/cli",
+  "version": "0.0.1",
+  "author": "Lance Whatley <whatl3y@gmail.com>",
+  "description": "CLI interface to interact with chest.store",
+  "engines": {
+    "node": "14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cheststore/chest.store-cli"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "postinstall": "npm run build",
+    "test": "mocha --exit --require @babel/register --recursive './src/**/*.spec.js'"
+  },
+  "bin": {
+    "chest": "./bin/chest"
+  },
+  "devDependencies": {
+    "@babel/register": "^7.9.0",
+    "mocha": "^7.1.2"
+  },
+  "dependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "axios": "^0.19.2",
+    "babel-loader": "^8.1.0",
+    "bunyan": "^1.8.12",
+    "commander": "^2.20.0",
+    "core-js": "^3.6.5",
+    "form-data": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-insert": "^0.5.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-uglify-es": "^1.0.4",
+    "inquirer": "^6.3.1",
+    "regenerator-runtime": "^0.13.3",
+    "root-require": "^0.3.1",
+    "webpack-node-externals": "^1.7.2",
+    "webpack-stream": "^5.2.1"
+  },
+  "license": "UNLICENSED"
+}
