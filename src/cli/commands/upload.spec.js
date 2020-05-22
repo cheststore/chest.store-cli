@@ -1,9 +1,9 @@
 import assert from 'assert'
-// import Mv from './mv'
+// import Upload from './upload'
 
-// const heartbeat = Mv({ log: {}})
+// const upload = Upload({ log: {}})
 
-// describe("Mv", function() {
+// describe("Upload", function() {
 //   describe("#getCommandFactory", function() {
 //     it("should take an invalid command and return null for the factory", function() {
 //       const inv1 = heartbeat.getCommandFactory(`invalid`)

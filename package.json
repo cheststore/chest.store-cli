@@ -28,6 +28,7 @@
     "axios": "^0.19.2",
     "babel-loader": "^8.1.0",
     "bunyan": "^1.8.12",
+    "columnify": "^1.5.4",
     "commander": "^2.20.0",
     "core-js": "^3.6.5",
     "form-data": "^3.0.0",

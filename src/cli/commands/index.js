@@ -1,7 +1,11 @@
 import Conf from './conf'
-import Mv from './mv'
+import Download from './download'
+import Ls from './ls'
+import Upload from './upload'
 
 export default {
   conf: Conf,
-  mv: Mv,
+  download: Download,
+  ls: Ls,
+  upload: Upload,
 }

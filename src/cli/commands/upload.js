@@ -1,16 +1,16 @@
-import axios from 'axios'
 import FormData from 'form-data'
 import Conf from './conf'
+import ApiHelpers from '../../libs/ApiHelpers'
 import FileManagement from '../../libs/FileManagement'
-import config from '../../config'
+// import config from '../../config'
 
-export default function MvCommand({ log } = {}) {
+export default function Upload({ log } = {}) {
   const confCommand = Conf({ log })
   const fileMgmt = FileManagement()
 
   return {
     help() {
-      return `Copy a file from your file system to chest.store or vice versa.`
+      return `Upload a file from your file system to a chest.store server.`
     },
 
     async run(localFile) {
@@ -29,7 +29,7 @@ export default function MvCommand({ log } = {}) {
       const validArgs = typeof localFile === 'string'
       if (!validArgs)
         throw new Error(
-          `Please enter a local file path to upload to chest.store\nex. $ chest mv ./test.json`
+          `Please enter a local file path to upload to chest.store\nex. $ chest upload ./test.json`
         )
 
       const fileExists = await fileMgmt.doesFileExist(localFile)
@@ -44,12 +44,9 @@ export default function MvCommand({ log } = {}) {
       const form = new FormData()
       form.append(`file`, fileReadStream, fileName)
 
-      await axios.post(`${localConfig.cheststoreApiHost}/object/upload`, form, {
-        headers: {
-          ...form.getHeaders(),
-          'User-Agent': 'chest.store-cli',
-          [config.apiKeyHeader]: localConfig.cheststoreApiKey,
-        },
+      const client = ApiHelpers.createApiClient(localConfig)
+      await client.post(`/object/upload`, form, {
+        headers: form.getHeaders(),
         responseType: 'arraybuffer',
       })
 

@@ -28,7 +28,7 @@ export default async function App(argv, { log } = {}) {
         reject(
           `Invalid command: ${program.args.join(
             ' '
-          )}\nSee --help for a list of available commands.`
+          )}\nRun '$ chest --help' for a list of available commands.`
         )
       })
 
