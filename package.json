@@ -1,11 +1,9 @@
 {
   "name": "@cheststore/cli",
   "version": "0.0.1",
+  "license": "MIT",
   "author": "Lance Whatley <whatl3y@gmail.com>",
   "description": "CLI interface to interact with chest.store",
-  "engines": {
-    "node": "14.0.0"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/cheststore/chest.store-cli"
@@ -41,6 +39,5 @@
     "root-require": "^0.3.1",
     "webpack-node-externals": "^1.7.2",
     "webpack-stream": "^5.2.1"
-  },
-  "license": "UNLICENSED"
+  }
 }

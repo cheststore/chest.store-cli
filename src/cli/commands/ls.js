@@ -10,7 +10,12 @@ export default function Ls({ log } = {}) {
       return `Fetch objects from a chest.store server in a particular cloud bucket.`
     },
 
-    async run(searchQuery) {
+    async run(...args) {
+      let [searchQuery, page, perPage] = [null, 1, 10]
+      if (args.length > 1) searchQuery = args[0]
+      if (args.length > 2) page = args[1]
+      if (args.length > 3) perPage = args[2]
+
       let localConfig
       try {
         localConfig = await confCommand.getConfig()
@@ -32,16 +37,18 @@ export default function Ls({ log } = {}) {
           filters: JSON.stringify({
             searchQuery: typeof searchQuery === 'string' && searchQuery,
           }),
-          page: 1,
-          perPage: 30,
+          page,
+          perPage,
         },
       })
 
       console.log(
         ApiHelpers.columnify(
           data.objectInfo.data.map((item) => ({
+            bucket_type: item.bucket_type,
+            // bucket_id: item.bucket_id,
+            bucket_uid: item.bucket_uid,
             object_id: item.id,
-            bucket_id: item.bucket_id,
             full_path: item.full_path,
             name: item.name,
           }))
