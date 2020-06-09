@@ -1,5 +1,5 @@
 import FormData from 'form-data'
-import Conf from './conf'
+import Conf from './config'
 import ApiHelpers from '../../libs/ApiHelpers'
 import FileManagement from '../../libs/FileManagement'
 // import config from '../../config'

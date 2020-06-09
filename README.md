@@ -1,4 +1,4 @@
-# [chest.store](https://github.com/cheststore/chest.store) CLI
+# chest.store CLI
 
 This is a CLI interface to interact with a chest.store server to manage buckets & objects
 including listing, uploading, and downloading. Note that you can use the git CLI like
@@ -14,8 +14,8 @@ a new remote in your repository(ies) of choice to your chest.store server and
 push/pull as changes are made.
 
 ```sh
-$ # `https://chest.store` below can be replaced with your server
-$ git remote add chest https://chest.store/git/YOUR_USERNAME/REPO_NAME
+$ # `https://app.chest.store` below can be replaced with your server
+$ git remote add chest https://app.chest.store/git/$YOUR_USERNAME/REPO_NAME
 $ git push chest master
 ```
 
@@ -23,16 +23,18 @@ $ git push chest master
 
 ```sh
 $ npm install -g @cheststore/cli
+$ chest config
 $ chest --help
 ```
 
 ## Commands
 
-1. `conf` - Initialize configuration options such as the chest.store server endpoint and API key the CLI will use to execute requests.
+1. `config` - Initialize configuration options such as the server endpoint and API key the CLI will use to execute requests.
 2. `ls` - List objects in your bucket (can be used to get the ID needed to use in `$ chest download ...`)
    - An extra CLI argument can be added to filter results based on a search query
    - ex. `$ chest ls myFileName`
-3. `download` - Download file from a chest.store server to your file system.
+3. `lsb` - List all cloud buckets you have access to
+4. `download` - Download file/object from a chest.store server to your file system. Takes the object ID (get from `ls`) as a parameter
    - ex. `$ chest download qqqq4011-a999-1234-89a4-xxxxx5aaaaaa`
-4. `upload` - Upload files on your local file system to a chest.store server.
+5. `upload` - Upload files on your local file system to a chest.store server.
    - ex. `$ chest upload ./local/file.txt`

@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import Conf from './conf'
+import Conf from './config'
 import ApiHelpers from '../../libs/ApiHelpers'
 import FileManagement from '../../libs/FileManagement'
 // import config from '../../config'
@@ -11,7 +11,7 @@ export default function Download({ log } = {}) {
 
   return {
     help() {
-      return `Download a file from a chest.store server with its ID. See 'ls' command to get ID.`
+      return `Download a file from a chest.store server with its ID. See '$ chest ls' command to get ID.`
     },
 
     async run(objectId) {

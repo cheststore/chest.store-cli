@@ -1,4 +1,4 @@
-import Conf from './conf'
+import Conf from './config'
 import ApiHelpers from '../../libs/ApiHelpers'
 // import config from '../../config'
 
@@ -7,7 +7,7 @@ export default function Ls({ log } = {}) {
 
   return {
     help() {
-      return `Fetch objects from a chest.store server in a particular cloud bucket.`
+      return `List objects in your cloud bucket(s).`
     },
 
     async run(...args) {
@@ -33,6 +33,7 @@ export default function Ls({ log } = {}) {
       const client = ApiHelpers.createApiClient(localConfig)
       const { data } = await client.get(`/api/1.0/objects/list`, {
         params: {
+          allDirectories: true,
           directoryId: null,
           filters: JSON.stringify({
             searchQuery: typeof searchQuery === 'string' && searchQuery,
@@ -45,10 +46,9 @@ export default function Ls({ log } = {}) {
       console.log(
         ApiHelpers.columnify(
           data.objectInfo.data.map((item) => ({
-            bucket_type: item.bucket_type,
             // bucket_id: item.bucket_id,
-            bucket_uid: item.bucket_uid,
-            object_id: item.id,
+            bucket: `(${item.bucket_type}) ${item.bucket_uid}`,
+            id: item.id,
             full_path: item.full_path,
             name: item.name,
           }))

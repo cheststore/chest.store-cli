@@ -50,7 +50,7 @@ export default function Config({ log } = {}) {
           name: 'cheststoreApiHost',
           message: `Optional: chest.store host to send API requests to`,
           type: 'input',
-          default: currentConfig.cheststoreApiHost || 'https://chest.store',
+          default: currentConfig.cheststoreApiHost || 'https://app.chest.store',
         },
         {
           name: 'cheststoreApiKey',
