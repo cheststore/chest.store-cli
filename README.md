@@ -1,7 +1,7 @@
 # chest.store CLI
 
 This is a CLI interface to interact with a chest.store server to manage buckets & objects
-including listing, uploading, and downloading. Note that you can use the git CLI like
+including listing, uploading, and downloading them. Note that you can use the git CLI like
 you would any other remote & repo without this package installed.
 
 ## Note on git
@@ -15,7 +15,7 @@ push/pull as changes are made.
 
 ```sh
 $ # `https://app.chest.store` below can be replaced with your server
-$ git remote add chest https://app.chest.store/git/$YOUR_USERNAME/REPO_NAME
+$ git remote add chest https://app.chest.store/git/$YOUR_USERNAME/$REPO
 $ git push chest master
 ```
 
